@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Engineer Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://jsdelivr.net"></script>
+    <style>
+        .terminal-glow { box-shadow: 0 0 15px rgba(34, 197, 94, 0.2); }
+    </style>
+</head>
+<body class="bg-gray-950 text-gray-100 font-sans selection:bg-green-500 selection:text-black">
+
+    <!-- Navbar -->
+    <nav class="border-b border-gray-800 bg-gray-950/80 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="font-mono text-xl font-bold text-green-400">
+                <span class="text-gray-500">&lt;</span>DevOps<span class="text-gray-500">/&gt;</span>
+            </div>
+            <div class="space-x-6 text-sm font-medium text-gray-400">
+                <a href="#about" class="hover:text-green-400 transition">About</a>
+                <a href="#skills" class="hover:text-green-400 transition">Tech Stack</a>
+                <a href="#pipeline" class="hover:text-green-400 transition">Workflow</a>
+                <a href="#projects" class="hover:text-green-400 transition">Projects</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section (Terminal Style) -->
+    <header id="about" class="max-w-5xl mx-auto px-4 py-16 md:py-24">
+        <div class="bg-gray-900 rounded-lg border border-gray-800 overflow-hidden terminal-glow">
+            <!-- Terminal Title Bar -->
+            <div class="bg-gray-800 px-4 py-3 flex items-center space-x-2 border-b border-gray-800">
+                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                <span class="text-xs text-gray-400 font-mono ml-4">bash — user@infrastructure-as-code</span>
+            </div>
+            <!-- Terminal Body -->
+            <div class="p-6 font-mono space-y-4 text-sm md:text-base">
+                <div>
+                    <span class="text-green-400">~ $</span> cat intro.md
+                    <p class="text-gray-300 mt-1 pl-4">Hi, I'm a <strong class="text-white">DevOps & Cloud Engineer</strong> focused on automating infrastructure, accelerating deployment pipelines, and ensuring 99.9% uptime.</p>
+                </div>
+                <div>
+                    <span class="text-green-400">~ $</span> terraform output philosophy
+                    <p class="text-gray-300 mt-1 pl-4 text-emerald-400">"If you have to do it more than once, automate it."</p>
+                </div>
+                <div>
+                    <span class="text-green-400">~ $</span> <span class="animate-pulse">█</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Skills Section -->
+    <section id="skills" class="max-w-5xl mx-auto px-4 py-12 border-t border-gray-900">
+        <h2 class="text-2xl font-bold mb-8 font-mono text-green-400">// Core Competencies</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Card 1 -->
+            <div class="p-6 bg-gray-900/50 border border-gray-800 rounded-lg">
+                <div class="text-xl mb-3">🛠️ CI/CD Pipelines</div>
+                <p class="text-gray-400 text-sm">Automating code quality, testing, and multi-environment deployments using GitHub Actions, GitLab CI, and Jenkins.</p>
+            </div>
+            <!-- Card 2 -->
+            <div class="p-6 bg-gray-900/50 border border-gray-800 rounded-lg">
+                <div class="text-xl mb-3">☁️ Cloud & Containers</div>
+                <p class="text-gray-400 text-sm">Orchestrating microservices using Docker, Kubernetes, AWS (EKS/EC2/S3), and Google Cloud Platform.</p>
+            </div>
+            <!-- Card 3 -->
+            <div class="p-6 bg-gray-900/50 border border-gray-800 rounded-lg">
+                <div class="text-xl mb-3">📜 Infrastructure as Code</div>
+                <p class="text-gray-400 text-sm">Managing declarative, scalable resources securely via Terraform, Ansible, and CloudFormation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pipeline Workflow Tracker -->
+    <section id="pipeline" class="max-w-5xl mx-auto px-4 py-12 border-t border-gray-900">
+        <h2 class="text-2xl font-bold mb-8 font-mono text-green-400">// Standard GitOps Pipeline Workflow</h2>
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-6 md:space-y-0 md:space-x-4">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 rounded-full bg-green-500/10 text-green-400 border border-green-500/30 flex items-center justify-center font-mono text-sm">1</div>
+                <div><h4 class="font-medium text-sm">Commit</h4><p class="text-xs text-gray-500">Git Push trigger</p></div>
+            </div>
+            <div class="hidden md:block flex-1 border-t border-dashed border-gray-800"></div>
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 rounded-full bg-green-500/10 text-green-400 border border-green-500/30 flex items-center justify-center font-mono text-sm">2</div>
+                <div><h4 class="font-medium text-sm">Lint & Test</h4><p class="text-xs text-gray-500">SonarQube / Unit tests</p></div>
+            </div>
+            <div class="hidden md:block flex-1 border-t border-dashed border-gray-800"></div>
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 rounded-full bg-green-500/10 text-green-400 border border-green-500/30 flex items-center justify-center font-mono text-sm">3</div>
+                <div><h4 class="font-medium text-sm">Build Image</h4><p class="text-xs text-gray-500">Docker multi-stage</p></div>
+            </div>
+            <div class="hidden md:block flex-1 border-t border-dashed border-gray-800"></div>
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 rounded-full bg-green-500/10 text-green-400 border border-green-500/30 flex items-center justify-center font-mono text-sm">4</div>
+                <div><h4 class="font-medium text-sm">Deploy</h4><p class="text-xs text-gray-500">ArgoCD to K8s cluster</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section id="projects" class="max-w-5xl mx-auto px-4 py-12 border-t border-gray-900 mb-16">
+        <h2 class="text-2xl font-bold mb-8 font-mono text-green-400">// Featured Repositories</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Project 1 -->
+            <div class="p-6 bg-gray-900/30 border border-gray-800 rounded-lg hover:border-gray-700 transition group">
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-lg font-semibold group-hover:text-green-400 transition">Kubernetes Cluster Automation</h3>
+                    <span class="text-xs font-mono px-2 py-1 bg-gray-800 text-gray-400 rounded">Terraform</span>
+                </div>
+                <p class="text-gray-400 text-sm mb-4">Production-grade AWS EKS cluster deployment automated completely via Terraform scripts with Prometheus monitoring configurations pre-integrated.</p>
+                <div class="text-xs text-gray-500 font-mono">🌟 42 &nbsp; • &nbsp; 🔄 Fully Automated</div>
+            </div>
+            <!-- Project 2 -->
+            <div class="p-6 bg-gray-900/30 border border-gray-800 rounded-lg hover:border-gray-700 transition group">
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-lg font-semibold group-hover:text-green-400 transition">Zero-Downtime CI/CD Flow</h3>
+                    <span class="text-xs font-mono px-2 py-1 bg-gray-800 text-gray-400 rounded">GitHub Actions</span>
+                </div>
+                <p class="text-gray-400 text-sm mb-4">A reusable GitHub Actions pipeline blueprint optimized for continuous deployment into AWS Elastic Beanstalk using blue/green deployment strategy.</p>
+                <div class="text-xs text-gray-500 font-mono">🌟 19 &nbsp; • &nbsp; 🚀 Multi-stage Docker</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-900 bg-gray-950 py-8 text-center text-xs text-gray-500 font-mono">
+        <p>&copy; 2026 DevOps Portfolio. Infrastructure managed as code.</p>
+    </footer>
+
+</body>
+</html>
