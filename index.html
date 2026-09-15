@@ -22,6 +22,73 @@
 </head>
 <body class="text-gray-900 font-sans selection:bg-blue-500 selection:text-white antialiased min-h-screen">
 
+    <!-- FOOTER -->
+    <footer class="border-t border-emerald-900/40 bg-black/40 py-8 text-center text-xs text-emerald-500/60 font-mono">
+        <p>&copy; 2026 Azure-Oxide Architecture Portfolio. Static rendering live via GitHub Actions.</p>
+    </footer>
+
+    <!-- PASTED JAVASCRIPT START -->
+    <script>
+        // 1. Clock Tracker
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('live-clock').innerText = now.toUTCString().replace('GMT', 'UTC');
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // 2. Matrix Rain Background Effect for Terminal View
+        const canvas = document.getElementById('matrix-canvas');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        const katakana = 'ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ1234567890ABCDEF';
+        const alphabet = katakana.split('');
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        const rainDrops = Array.from({ length: columns }).fill(1);
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = Math.random() > 0.5 ? '#007FFF' : '#4ade80';
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < rainDrops.length; i++) {
+                const text = alphabet[Math.floor(Math.random() * alphabet.length)];
+                ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+
+                if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    rainDrops[i] = 0;
+                }
+                rainDrops[i]++;
+            }
+        }
+        setInterval(drawMatrix, 35);
+
+        // 3. Interactive Pipeline Button Simulation Function
+        function simulateBuild(buttonElement, successMessage) {
+            const statusLabel = buttonElement.querySelector('.status-label');
+            statusLabel.innerText = "RUNNING...";
+            statusLabel.className = "text-[10px] text-yellow-400 mt-2 status-label animate-pulse";
+            buttonElement.style.borderColor = "#facc15";
+
+            setTimeout(() => {
+                statusLabel.innerText = "✔ " + successMessage;
+                statusLabel.className = "text-[10px] text-emerald-400 mt-2 status-label font-bold";
+                buttonElement.style.borderColor = "#4ade80";
+            }, 1200);
+        }
+    </script>
+    <!-- PASTED JAVASCRIPT END -->
+
     <!-- Navbar -->
     <nav class="border-b border-blue-400/20 bg-blue-950/80 backdrop-blur sticky top-0 z-50 text-white">
         <div class="max-w-5xl mx-auto px-4 py-4 flex justify-between items-center">
@@ -139,3 +206,4 @@
                         <div class="text-sm font-bold group-hover:text-emerald-300">Canary Traffic</div>
                         <div class="text-[10px] text-emerald-500 mt-2 status-label">IDLE</div>
                     </button>
+                </body>
