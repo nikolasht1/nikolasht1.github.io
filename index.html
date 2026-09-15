@@ -3,134 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevOps Engineer Portfolio</title>
+    <title>DevOps Cloud Engineer</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://jsdelivr.net"></script>
     <style>
-        .terminal-glow { box-shadow: 0 0 15px rgba(34, 197, 94, 0.2); }
+        /* Custom smooth linear gradient backdrop across the whole page */
+        body {
+            background: linear-gradient(to bottom, #007FFF 0%, #0052a3 15%, #ffffff 40%, #ffffff 60%, #1e3f20 85%, #0f2010 100%);
+            background-attachment: fixed;
+        }
+        /* Color matching classes for the oxide green and azure styles */
+        .text-oxide { color: #4ade80; }
+        .bg-oxide-dark { background-color: #0f2010; }
+        .border-azure { border-color: #007FFF; }
+        .text-azure { color: #007FFF; }
+        .terminal-glow { box-shadow: 0 4px 30px rgba(0, 127, 255, 0.3); }
     </style>
 </head>
-<body class="bg-gray-950 text-gray-100 font-sans selection:bg-green-500 selection:text-black">
+<body class="text-gray-900 font-sans selection:bg-blue-500 selection:text-white antialiased min-h-screen">
 
     <!-- Navbar -->
-    <nav class="border-b border-gray-800 bg-gray-950/80 backdrop-blur sticky top-0 z-50">
+    <nav class="border-b border-blue-400/20 bg-blue-950/80 backdrop-blur sticky top-0 z-50 text-white">
         <div class="max-w-5xl mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="font-mono text-xl font-bold text-green-400">
-                <span class="text-gray-500">&lt;</span>DevOps<span class="text-gray-500">/&gt;</span>
+            <div class="font-mono text-xl font-bold text-blue-300">
+                <span class="text-blue-500">&lt;</span>Azure<span class="text-emerald-400">Oxide</span><span class="text-blue-500">/&gt;</span>
             </div>
-            <div class="space-x-6 text-sm font-medium text-gray-400">
-                <a href="#about" class="hover:text-green-400 transition">About</a>
-                <a href="#skills" class="hover:text-green-400 transition">Tech Stack</a>
-                <a href="#pipeline" class="hover:text-green-400 transition">Workflow</a>
-                <a href="#projects" class="hover:text-green-400 transition">Projects</a>
+            <div class="space-x-6 text-sm font-medium text-blue-100">
+                <a href="#about" class="hover:text-blue-300 transition">Console</a>
+                <a href="#skills" class="hover:text-blue-300 transition">Stack</a>
+                <a href="#pipeline" class="hover:text-emerald-600 transition">Metrics</a>
+                <a href="#projects" class="hover:text-emerald-500 transition">Deployments</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section (Terminal Style) -->
-    <header id="about" class="max-w-5xl mx-auto px-4 py-16 md:py-24">
-        <div class="bg-gray-900 rounded-lg border border-gray-800 overflow-hidden terminal-glow">
+    <!-- Top Section (Ocean Azure Theme) -->
+    <header id="about" class="max-w-5xl mx-auto px-4 py-12 md:py-20 text-white">
+        <div class="bg-slate-950/90 rounded-lg border border-blue-500/40 overflow-hidden terminal-glow backdrop-blur-sm">
             <!-- Terminal Title Bar -->
-            <div class="bg-gray-800 px-4 py-3 flex items-center space-x-2 border-b border-gray-800">
-                <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                <span class="text-xs text-gray-400 font-mono ml-4">bash — user@infrastructure-as-code</span>
+            <div class="bg-slate-900 px-4 py-3 flex items-center justify-between border-b border-slate-800">
+                <div class="flex items-center space-x-2">
+                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    <span class="text-xs text-blue-400 font-mono ml-4">interactive-shell — live_stream.sh</span>
+                </div>
+                <span id="live-clock" class="text-xs font-mono text-blue-300 bg-blue-950 px-2 py-0.5 rounded">00:00:00 UTC</span>
             </div>
+            
+            <!-- JavaScript Dynamic Terminal Canvas -->
+            <div class="relative h-48 bg-black/60 border-b border-slate-800">
+                <canvas id="matrix-canvas" class="absolute inset-0 w-full h-full opacity-40"></canvas>
+                <div class="absolute inset-0 p-6 flex flex-col justify-end font-mono text-xs md:text-sm pointer-events-none bg-gradient-to-t from-slate-950 to-transparent">
+                    <p class="text-blue-400 font-bold">[OK] Azure Resource Group initialized successfully.</p>
+                    <p class="text-emerald-400 font-bold">[OK] Oxide agents hooked into system-kernel pipelines.</p>
+                </div>
+            </div>
+
             <!-- Terminal Body -->
             <div class="p-6 font-mono space-y-4 text-sm md:text-base">
                 <div>
-                    <span class="text-green-400">~ $</span> cat intro.md
-                    <p class="text-gray-300 mt-1 pl-4">Hi, I'm a <strong class="text-white">DevOps & Cloud Engineer</strong> focused on automating infrastructure, accelerating deployment pipelines, and ensuring 99.9% uptime.</p>
+                    <span class="text-blue-400">~ $</span> cat engineer_profile.json
+                    <p class="text-slate-300 mt-1 pl-4 whitespace-pre-wrap text-blue-200">"I bridge the deep blue of scalable Cloud architectures with the raw, grounded strength of automated pipeline operations."</p>
                 </div>
                 <div>
-                    <span class="text-green-400">~ $</span> terraform output philosophy
-                    <p class="text-gray-300 mt-1 pl-4 text-emerald-400">"If you have to do it more than once, automate it."</p>
-                </div>
-                <div>
-                    <span class="text-green-400">~ $</span> <span class="animate-pulse">█</span>
+                    <span class="text-emerald-400">~ $</span> status --check-cluster
+                    <div class="mt-2 pl-4 flex items-center space-x-3 text-xs bg-slate-900 p-3 rounded border border-slate-800">
+                        <span class="flex h-3 w-3 relative">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                        </span>
+                        <span class="text-slate-300">All environments: <strong class="text-emerald-400">Healthy & Online</strong></span>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Skills Section -->
-    <section id="skills" class="max-w-5xl mx-auto px-4 py-12 border-t border-gray-900">
-        <h2 class="text-2xl font-bold mb-8 font-mono text-green-400">// Core Competencies</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <!-- Middle Section (Clean White Theme) -->
+    <section id="skills" class="max-w-5xl mx-auto px-4 py-16 my-8 bg-white/80 rounded-2xl shadow-xl border border-slate-200 backdrop-blur-md">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <span class="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-3 py-1 rounded-full">Architecture Core</span>
+            <h2 class="text-3xl font-extrabold mt-3 text-slate-900 tracking-tight">Ecosystem Technologies</h2>
+            <p class="text-slate-600 mt-2">Declarative infrastructure tools used to deploy reliable application blueprints layout across clouds.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <!-- Card 1 -->
-            <div class="p-6 bg-gray-900/50 border border-gray-800 rounded-lg">
-                <div class="text-xl mb-3">🛠️ CI/CD Pipelines</div>
-                <p class="text-gray-400 text-sm">Automating code quality, testing, and multi-environment deployments using GitHub Actions, GitLab CI, and Jenkins.</p>
+            <div class="p-6 bg-slate-50 border border-slate-200 rounded-xl hover:shadow-md transition hover:-translate-y-1 duration-200">
+                <div class="text-2xl mb-3 text-blue-600">⚡ Provisioning</div>
+                <h3 class="font-bold text-slate-800 mb-2">Infrastructure As Code</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">Developing deterministic environments via Terraform modules, ensuring zero drifts between environments.</p>
             </div>
             <!-- Card 2 -->
-            <div class="p-6 bg-gray-900/50 border border-gray-800 rounded-lg">
-                <div class="text-xl mb-3">☁️ Cloud & Containers</div>
-                <p class="text-gray-400 text-sm">Orchestrating microservices using Docker, Kubernetes, AWS (EKS/EC2/S3), and Google Cloud Platform.</p>
+            <div class="p-6 bg-slate-50 border border-slate-200 rounded-xl hover:shadow-md transition hover:-translate-y-1 duration-200">
+                <div class="text-2xl mb-3 text-blue-600">📦 Containerization</div>
+                <h3 class="font-bold text-slate-800 mb-2">Kubernetes & Meshes</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">Packaging secure Docker payloads managed across distributed pods with transparent service proxy mapping.</p>
             </div>
             <!-- Card 3 -->
-            <div class="p-6 bg-gray-900/50 border border-gray-800 rounded-lg">
-                <div class="text-xl mb-3">📜 Infrastructure as Code</div>
-                <p class="text-gray-400 text-sm">Managing declarative, scalable resources securely via Terraform, Ansible, and CloudFormation.</p>
+            <div class="p-6 bg-slate-50 border border-slate-200 rounded-xl hover:shadow-md transition hover:-translate-y-1 duration-200">
+                <div class="text-2xl mb-3 text-emerald-600">🔄 Delivery</div>
+                <h3 class="font-bold text-slate-800 mb-2">Continuous GitOps</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">Syncing code directly to live operations using validation engines that deploy changes safely without service interruption.</p>
             </div>
         </div>
     </section>
 
-    <!-- Pipeline Workflow Tracker -->
-    <section id="pipeline" class="max-w-5xl mx-auto px-4 py-12 border-t border-gray-900">
-        <h2 class="text-2xl font-bold mb-8 font-mono text-green-400">// Standard GitOps Pipeline Workflow</h2>
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-6 md:space-y-0 md:space-x-4">
-            <div class="flex items-center space-x-3">
-                <div class="w-8 h-8 rounded-full bg-green-500/10 text-green-400 border border-green-500/30 flex items-center justify-center font-mono text-sm">1</div>
-                <div><h4 class="font-medium text-sm">Commit</h4><p class="text-xs text-gray-500">Git Push trigger</p></div>
-            </div>
-            <div class="hidden md:block flex-1 border-t border-dashed border-gray-800"></div>
-            <div class="flex items-center space-x-3">
-                <div class="w-8 h-8 rounded-full bg-green-500/10 text-green-400 border border-green-500/30 flex items-center justify-center font-mono text-sm">2</div>
-                <div><h4 class="font-medium text-sm">Lint & Test</h4><p class="text-xs text-gray-500">SonarQube / Unit tests</p></div>
-            </div>
-            <div class="hidden md:block flex-1 border-t border-dashed border-gray-800"></div>
-            <div class="flex items-center space-x-3">
-                <div class="w-8 h-8 rounded-full bg-green-500/10 text-green-400 border border-green-500/30 flex items-center justify-center font-mono text-sm">3</div>
-                <div><h4 class="font-medium text-sm">Build Image</h4><p class="text-xs text-gray-500">Docker multi-stage</p></div>
-            </div>
-            <div class="hidden md:block flex-1 border-t border-dashed border-gray-800"></div>
-            <div class="flex items-center space-x-3">
-                <div class="w-8 h-8 rounded-full bg-green-500/10 text-green-400 border border-green-500/30 flex items-center justify-center font-mono text-sm">4</div>
-                <div><h4 class="font-medium text-sm">Deploy</h4><p class="text-xs text-gray-500">ArgoCD to K8s cluster</p></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Grid -->
-    <section id="projects" class="max-w-5xl mx-auto px-4 py-12 border-t border-gray-900 mb-16">
-        <h2 class="text-2xl font-bold mb-8 font-mono text-green-400">// Featured Repositories</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <!-- Project 1 -->
-            <div class="p-6 bg-gray-900/30 border border-gray-800 rounded-lg hover:border-gray-700 transition group">
-                <div class="flex justify-between items-start mb-2">
-                    <h3 class="text-lg font-semibold group-hover:text-green-400 transition">Kubernetes Cluster Automation</h3>
-                    <span class="text-xs font-mono px-2 py-1 bg-gray-800 text-gray-400 rounded">Terraform</span>
-                </div>
-                <p class="text-gray-400 text-sm mb-4">Production-grade AWS EKS cluster deployment automated completely via Terraform scripts with Prometheus monitoring configurations pre-integrated.</p>
-                <div class="text-xs text-gray-500 font-mono">🌟 42 &nbsp; • &nbsp; 🔄 Fully Automated</div>
-            </div>
-            <!-- Project 2 -->
-            <div class="p-6 bg-gray-900/30 border border-gray-800 rounded-lg hover:border-gray-700 transition group">
-                <div class="flex justify-between items-start mb-2">
-                    <h3 class="text-lg font-semibold group-hover:text-green-400 transition">Zero-Downtime CI/CD Flow</h3>
-                    <span class="text-xs font-mono px-2 py-1 bg-gray-800 text-gray-400 rounded">GitHub Actions</span>
-                </div>
-                <p class="text-gray-400 text-sm mb-4">A reusable GitHub Actions pipeline blueprint optimized for continuous deployment into AWS Elastic Beanstalk using blue/green deployment strategy.</p>
-                <div class="text-xs text-gray-500 font-mono">🌟 19 &nbsp; • &nbsp; 🚀 Multi-stage Docker</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="border-t border-gray-900 bg-gray-950 py-8 text-center text-xs text-gray-500 font-mono">
-        <p>&copy; 2026 DevOps Portfolio. Infrastructure managed as code.</p>
-    </footer>
-
-</body>
-</html>
+    <!-- Bottom Section (Oxide Green Theme) -->
+    <div class="bg-gradient-to-t from-black/40 to-transparent pt-12 pb-1">
+        
+        <!-- Interactive Pipeline Tracker -->
+        <section id="pipeline" class="max-w-5xl mx-auto px-4 py-12 text-white">
+            <h2 class="text-2xl font-bold mb-8 font-mono text-emerald-400">// Real-time Metric Evaluator</h2>
+            <div class="bg-emerald-950/60 border border-emerald-500/30 p-6 rounded-xl backdrop-blur-sm">
+                <p class="text-xs text-emerald-300 font-mono mb-4">Click stages to simulate build evaluation states:</p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <button onclick="simulateBuild(this, 'Linting Complete')" class="p-4 bg-black/40 border border-emerald-500/20 hover:border-emerald-400 rounded-lg text-left transition font-mono group">
+                        <div class="text-emerald-400 text-xs font-bold mb-1">STAGE 01</div>
+                        <div class="text-sm font-bold group-hover:text-emerald-300">Code Analysis</div>
+                        <div class="text-[10px] text-emerald-500 mt-2 status-label">IDLE</div>
+                    </button>
+                    <button onclick="simulateBuild(this, 'Images Pushed')" class="p-4 bg-black/40 border border-emerald-500/20 hover:border-emerald-400 rounded-lg text-left transition font-mono group">
+                        <div class="text-emerald-400 text-xs font-bold mb-1">STAGE 02</div>
+                        <div class="text-sm font-bold group-hover:text-emerald-300">Docker Compile</div>
+                        <div class="text-[10px] text-emerald-500 mt-2 status-label">IDLE</div>
+                    </button>
+                    <button onclick="simulateBuild(this, 'Manifests Applied')" class="p-4 bg-black/40 border border-emerald-500/20 hover:border-emerald-400 rounded-lg text-left transition font-mono group">
+                        <div class="text-emerald-400 text-xs font-bold mb-1">STAGE 03</div>
+                        <div class="text-sm font-bold group-hover:text-emerald-300">GitOps Sync</div>
+                        <div class="text-[10px] text-emerald-500 mt-2 status-label">IDLE</div>
+                    </button>
+                    <button onclick="simulateBuild(this, 'All Probes 200 OK')" class="p-4 bg-black/40 border border-emerald-500/20 hover:border-emerald-400 rounded-lg text-left transition font-mono group">
+                        <div class="text-emerald-400 text-xs font-bold mb-1">STAGE 04</div>
+                        <div class="text-sm font-bold group-hover:text-emerald-300">Canary Traffic</div>
+                        <div class="text-[10px] text-emerald-500 mt-2 status-label">IDLE</div>
+                    </button>
